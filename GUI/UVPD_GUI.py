@@ -396,7 +396,7 @@ if __name__ == '__main__': #always and forever.
 
         return missing_packages
 
-    required_packages = ['pyteomics', 'numpy', 'pandas'] #modules required for the UVPD script
+    required_packages = ['pyqt5', 'pyteomics', 'numpy', 'pandas'] #modules required for the UVPD script
     missing_packages = check_and_install_packages(required_packages) 
 
     if missing_packages:
