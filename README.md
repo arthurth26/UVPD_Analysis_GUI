@@ -1,32 +1,36 @@
-# UVPD_Analysis_GUI
-A GUI and sample files for analysis of variable wavelength UVPD data obtained on the modified QTRAP 5500 hybrid triple-quad in the Hopkins Lab
+# UVPD Analysis GUI
 
+This repository provides a Graphical User Interface (GUI) along with sample files for the analysis of variable wavelength UVPD (Ultraviolet Photodissociation) data obtained on the modified QTRAP 5500 hybrid triple-quad in the Hopkins Lab.
 
-Launch the GUI by running UVPD_GUI.py (found in the GUI directory) in your preferred Python environment. Note that this GUI requires the following packages: PyQt5, numpy, pandas, and pyteomics. If you are missing any of these, you will be prompted to install them on launch directly on launch. 
+## Getting Started
 
-Once initialized, the interface can be popluated with the following fields:
+To launch the GUI, run `UVPD_GUI.py` located in the `GUI` directory in your preferred Python environment. Ensure that the following packages are installed: PyQt5, numpy, pandas, and pyteomics. If any of these packages are missing, you will be prompted to install them upon launching the GUI.
 
-Directory: The directory that contains the .wiff files. As a naming convention, each scan that is saved to the .wiff file contains a substring 'Laser_On_XXXnm', where XXX is the wavelength of the laser light being used for UVPD. The directory can be selected using an Explorer-like interface by clicking on the "Select Directory" option. 
+## GUI Initialization
 
-Base Peak Range: the upper and lower m/z value that encompasses the parent ion peak. This entry should be two, comma-separated numbers. The numbers can be intergers or decimals. For example: 202.5,204
-Fragment Ion Ranges: the upper and lower m/z value that encompasses each fragment ion formed via UVPD. This entry can contain as many fragments as you wish. The format for entry is two, comma-separated numbers enclosed by comma-separated brackets. The numbers can be intergers or decimals. For example: (50.5,51.5),(102.5,103.5),125.5,127.9)
+Once initialized, the interface can be populated with information in the following fields:
 
-The Extract mzML files from .wiff checkbox: If checked, .mzML files will be created for all scans saved to each .wiff files found in the Directory. If unchecked, the code will look for .mzML files in the mzML directory, which will have the path Directory\\mzml_directory. This mzML directory is automatically created if the Extract mzML files from .wiff checkbox is checked. 
+- **Directory:** The directory containing the .wiff files. Each scan saved to the .wiff file follows the naming convention 'Laser_On_XXXnm', where XXX is the wavelength of the laser light used for UVPD.
 
-The Normalize to Laser Power checkbox: If checked, normalizes photofragmentation efficiency to laser power (reccomended; see https://pubs.acs.org/doi/full/10.1021/acs.jpca.1c05564). If unchecked, photofragmentation efficiency will not be normalized to laser power (not reccomended). The name of the powerdata.csv file is provided in the corresponding dialog box. 
+- **Base Peak Range:** The upper and lower m/z values encompassing the parent ion peak. Enter two comma-separated numbers (e.g., 202.5, 204).
 
-The Print Raw Data checkbox: If selected, the full mass spectrum for each scan found in the .wiff file will be printed to a .csv. 
+- **Fragment Ion Ranges:** The upper and lower m/z values encompassing each fragment ion formed via UVPD. Enter pairs of values enclosed by brackets and separated by commas (e.g., (50.5, 51.5),(102.5, 103.5),(125.5, 127.9).
 
-For proper file format and naming conventions, please see the example files provided in the ExampleData_beforeAnalysis and ExampleData_afterAnalysis directories. 
+- **Extract mzML files from .wiff checkbox:** If checked, .mzML files will be created for all scans in the specified directory. If unchecked, the code will look for .mzML files in the mzML directory (automatically created if checked).
 
-# Example Usage
+- **Normalize to Laser Power checkbox:** If checked, normalizes photofragmentation efficiency to laser power (recommended). If unchecked, photofragmentation efficiency will not be normalized. Specify the powerdata.csv file in the corresponding dialog box.
 
-The GUI can be run on the data provided in the ExampleData_beforeAnalysis directory. The GUI can be popluated with thet following information, which should mimic the outputs found in the ExampleData_afterAnalysis directory
+- **Print Raw Data checkbox:** If selected, the full mass spectrum for each scan in the .wiff file will be printed to a .csv.
 
-Base peak range: 239.0,242.0
+## Example Usage
 
-Fragment ion ranges: (54.5,57.0),(114.5,116.0),(129.5,131.0),(139.5,140.5),(141.5,142.8),(153.5,154.5),(156.5,158.0),(167.5,169.0),(170.5,172.0),(180.5,181.8),(182.6,184.0),(184.5,186.0),(198.5,200.0),(208.0,210.0)
+Same data is provided to demonsate the GUI's utility:
 
-Power data filename: powerscan_400_600nm_120us.csv
+1. Use the data in the `ExampleData_beforeAnalysis` directory.
+2. Populate the GUI with the following information to mimic the outputs found in the `ExampleData_afterAnalysis` directory:
 
-Please report any bugs to the issues section. 
+   - **Base Peak Range:** 239.0,242.0
+   - **Fragment Ion Ranges:** (54.5,57.0),(114.5,116.0),(129.5,131.0),(139.5,140.5),(141.5,142.8),(153.5,154.5),(156.5,158.0),(167.5,169.0),(170.5,172.0),(180.5,181.8),(182.6,184.0),(184.5,186.0),(198.5,200.0),(208.0,210.0)
+   - **Power Data Filename:** powerscan_400_600nm_120us.csv
+
+Please report any bugs in the issues section.
