@@ -295,7 +295,10 @@ class GUI(QWidget):
         ###################################           
 
         start = time.time() #get the time to determine overall calculation time. 
-        mzml_directory = os.path.join(directory, 'mzml_directory') #directory for mzml files to be written to / where they are stored
+        if self.extract_mzml_checkbox.isChecked() == False:
+            mzml_directory = directory #If the user did not want to extra the mzml files from wiff
+        else:
+            mzml_directory = os.path.join(directory, 'mzml_directory')  #directory for mzml files to be written to / where they are stored
         
         # Convert contents of each wiff file into an mzml (if requested)
         if extract_mzml_from_wiff_flag:
